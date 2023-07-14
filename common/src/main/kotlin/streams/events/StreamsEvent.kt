@@ -4,14 +4,15 @@ import org.neo4j.graphdb.schema.ConstraintType
 
 enum class OperationType { created, updated, deleted }
 
-data class Meta(val timestamp: Long,
-                val username: String,
-                val txId: Long,
-                val txEventId: Int,
-                val txEventsCount: Int,
-                val operation: OperationType,
-                val source: Map<String, Any> = emptyMap())
+//data class Meta(val timestamp: Long,
+//                val username: String,
+//                val txId: Long,
+//                val txEventId: Int,
+//                val txEventsCount: Int,
+//                val operation: OperationType,
+//                val source: Map<String, Any> = emptyMap())
 
+data class Meta(val timestamp: Long, val operation: OperationType)
 
 enum class EntityType { node, relationship }
 

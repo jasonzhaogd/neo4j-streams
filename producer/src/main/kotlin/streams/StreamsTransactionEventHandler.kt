@@ -59,12 +59,12 @@ class StreamsTransactionEventHandler(private val router: StreamsEventRouter,
     private fun payloadToEvent(operation: OperationType, payload: Payload, schema: Schema, txd: TransactionData, eventId: Int, eventCount: Int) : StreamsTransactionEvent{
         val meta = StreamsEventMetaBuilder()
                 .withOperation(operation)
-                .withTransactionEventId(eventId)
-                .withTransactionEventsCount(eventCount)
-                .withUsername(txd.username())
+//                .withTransactionEventId(eventId)
+//                .withTransactionEventsCount(eventCount)
+//                .withUsername(txd.username())
                 .withTimestamp(txd.commitTime)
-                .withTransactionId(txd.transactionId)
-                .withHostname(hostName)
+//                .withTransactionId(txd.transactionId)
+//                .withHostname(hostName)
                 .build()
 
         val builder = StreamsTransactionEventBuilder()

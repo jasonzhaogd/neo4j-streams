@@ -124,9 +124,9 @@ class KafkaEventRouter(private val config: Map<String, String>,
 
     // this method is used by the transaction event handler
     private fun sendEvent(topic: String, event: StreamsTransactionEvent, config: Map<String, Any?>) {
-        if (log.isDebugEnabled) {
-            log.debug("Trying to send a transaction event with txId ${event.meta.txId} and txEventId ${event.meta.txEventId} to kafka")
-        }
+//        if (log.isDebugEnabled) {
+//            log.debug("Trying to send a transaction event with txId ${event.meta.txId} and txEventId ${event.meta.txEventId} to kafka")
+//        }
         val key = JSONUtils.writeValueAsBytes(event.asSourceRecordKey(kafkaConfig.streamsLogCompactionStrategy))
         val value = event.asSourceRecordValue(kafkaConfig.streamsLogCompactionStrategy)?.let { JSONUtils.writeValueAsBytes(it) }
 

@@ -51,7 +51,8 @@ fun StreamsTransactionEvent.asSourceRecordKey(strategy: String): Any =
         when {
             isStrategyCompact(strategy) && payload is NodePayload -> nodePayloadAsMessageKey(payload as NodePayload, schema)
             isStrategyCompact(strategy) && payload is RelationshipPayload -> relationshipAsMessageKey(payload as RelationshipPayload)
-            else -> "${meta.txId + meta.txEventId}-${meta.txEventId}"
+//            else -> "${meta.txId + meta.txEventId}-${meta.txEventId}"
+            else -> "999"
         }
 
 private fun nodePayloadAsMessageKey(payload: NodePayload, schema: Schema) = run {
