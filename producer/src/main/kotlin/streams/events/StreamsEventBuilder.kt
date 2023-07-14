@@ -205,7 +205,7 @@ class StreamsTransactionEventBuilder {
 
     private var meta: Meta? = null
     private var payload: Payload? = null
-    private var schema: Schema? = null
+//    private var schema: Schema? = null
 
     fun withMeta(meta : Meta): StreamsTransactionEventBuilder {
         this.meta = meta
@@ -217,13 +217,14 @@ class StreamsTransactionEventBuilder {
         return this
     }
 
-    fun withSchema(schema : Schema): StreamsTransactionEventBuilder {
-        this.schema = schema
-        return this
-    }
+//    fun withSchema(schema : Schema): StreamsTransactionEventBuilder {
+//        this.schema = schema
+//        return this
+//    }
 
     fun build(): StreamsTransactionEvent {
-        return StreamsTransactionEvent(meta!!, payload!!, schema!!)
+//        return StreamsTransactionEvent(meta!!, payload!!, schema!!)
+        return StreamsTransactionEvent(meta!!, payload!!)
     }
 }
 

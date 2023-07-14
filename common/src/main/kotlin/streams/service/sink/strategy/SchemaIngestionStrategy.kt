@@ -180,6 +180,6 @@ class SchemaIngestionStrategy: IngestionStrategy {
     }
 
     private fun getNodeConstraints(event: StreamsTransactionEvent,
-                                   filter: (Constraint) -> Boolean): List<Constraint> = event.schema.constraints.filter { filter(it) }
+                                   filter: (Constraint) -> Boolean): List<Constraint> = emptyList()
 
 }

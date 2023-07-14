@@ -49,18 +49,19 @@ fun StreamsTransactionEvent.asSourceRecordValue(strategy: String): StreamsTransa
 
 fun StreamsTransactionEvent.asSourceRecordKey(strategy: String): Any =
         when {
-            isStrategyCompact(strategy) && payload is NodePayload -> nodePayloadAsMessageKey(payload as NodePayload, schema)
+            isStrategyCompact(strategy) && payload is NodePayload -> nodePayloadAsMessageKey(payload as NodePayload)
             isStrategyCompact(strategy) && payload is RelationshipPayload -> relationshipAsMessageKey(payload as RelationshipPayload)
 //            else -> "${meta.txId + meta.txEventId}-${meta.txEventId}"
             else -> "999"
         }
 
-private fun nodePayloadAsMessageKey(payload: NodePayload, schema: Schema) = run {
+private fun nodePayloadAsMessageKey(payload: NodePayload) = run {
     val nodeChange: NodeChange = payload.after ?: payload.before!!
     val labels = nodeChange.labels ?: emptyList()
     val props: Map<String, Any> = nodeChange.properties ?: emptyMap()
-    val keys = SchemaUtils.getNodeKeys(labels, props.keys, schema.constraints)
-    val ids = props.filterKeys { keys.contains(it) }
+//    val keys = SchemaUtils.getNodeKeys(labels, props.keys, schema.constraints)
+//    val ids = props.filterKeys { keys.contains(it) }
+    var ids = emptyList<String>()
 
     if (ids.isEmpty()) payload.id else mapOf("ids" to ids, "labels" to labels)
 }

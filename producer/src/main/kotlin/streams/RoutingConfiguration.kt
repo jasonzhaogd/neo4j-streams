@@ -143,7 +143,7 @@ data class NodeRoutingConfiguration(val labels: List<String> = emptyList(),
                                 before = newRecordBefore,
                                 after = newRecordAfter)
 
-                        val newStreamsEvent = streamsTransactionEvent.copy(schema = streamsTransactionEvent.schema,
+                        val newStreamsEvent = streamsTransactionEvent.copy(
                                 meta = streamsTransactionEvent.meta,
                                 payload = newNodePayload)
 
@@ -228,7 +228,7 @@ data class RelationshipRoutingConfiguration(val name: String = "",
                                 after = newRecordAfter,
                                 label = relationshipPayload.label)
 
-                        val newStreamsEvent = streamsTransactionEvent.copy(schema = streamsTransactionEvent.schema,
+                        val newStreamsEvent = streamsTransactionEvent.copy(
                                 meta = streamsTransactionEvent.meta,
                                 payload = newRelationshipPayload)
 

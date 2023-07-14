@@ -70,7 +70,7 @@ class StreamsTransactionEventHandler(private val router: StreamsEventRouter,
         val builder = StreamsTransactionEventBuilder()
                 .withMeta(meta)
                 .withPayload(payload)
-                .withSchema(schema)
+//                .withSchema(schema)
 
         return builder.build()
     }
