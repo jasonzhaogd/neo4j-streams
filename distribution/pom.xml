@@ -56,7 +56,7 @@
                                 <descriptor>../assembly/assembly.xml</descriptor>
                             </descriptors>
                             <appendAssemblyId>false</appendAssemblyId>
-                            <finalName>neo4j-streams-${project.version}</finalName>
+                            <finalName>neo4j-streams-qinda-${project.version}</finalName>
                             <appendAssemblyId>false</appendAssemblyId>
                             <outputDirectory>${project.parent.basedir}/target/${buildSubDirectory}</outputDirectory>
                         </configuration>
