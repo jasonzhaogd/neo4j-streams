@@ -346,7 +346,8 @@ class StreamsTransactionEventHandler(private val router: StreamsEventRouter,
                 .groupBy({ it.key }, { it.value })
 
         topicEventsMap.forEach {
-            router.sendEvents(it.key, it.value)
+//            router.sendEvents(it.key, it.value)
+            router.sendEvents("neo4j_cdc", it.value)
         }
     }
 
